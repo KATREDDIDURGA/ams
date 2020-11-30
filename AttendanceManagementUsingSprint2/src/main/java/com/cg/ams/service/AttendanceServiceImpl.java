@@ -17,7 +17,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	@Override
 	public Long add(AttendanceEntity entity) {
 		dao.save(entity);
-		return entity.getId();
+		return entity.getAttendanceId();
 	}
 
 	@Override
@@ -27,13 +27,13 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
-		dao.deleteById(id);
+	public void deleteByStudentId(Long StudentId ) {
+		dao.deleteById(StudentId);
 	}
 
 	@Override
-	public AttendanceEntity findBySubjectName(String subjectName) {
-		return dao.findBySubjectName(subjectName);
+	public AttendanceEntity findByStudentId(Long studentId) {
+		return dao.findByStudentId(studentId);
 		
 	}
 

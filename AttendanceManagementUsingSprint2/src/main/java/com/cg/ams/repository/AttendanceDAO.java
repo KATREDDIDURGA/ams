@@ -7,10 +7,13 @@ import com.cg.ams.entity.AttendanceEntity;
 
 
 public interface AttendanceDAO extends JpaRepository<AttendanceEntity, Long>{
-	@Query("SELECT a FROM AttendanceEntity a WHERE a.id like ?1")
+	@Query("SELECT a FROM AttendanceEntity a WHERE a.attendanceId like ?1")
 	public AttendanceEntity findByAttendanceId(Long id);
 	
-	@Query("SELECT a FROM AttendanceEntity a WHERE a.subjectName like ?1")
-	public AttendanceEntity findBySubjectName(String subjectName);
+	@Query("SELECT a FROM AttendanceEntity a WHERE a.studentId like ?1")
+	public AttendanceEntity findByStudentId(Long studentId);
+	
+	@Query("DELETE from AttendanceEntity a where a.studentId like ?1")
+	public AttendanceEntity deleteByStudentId(Long studentId);
 
 }

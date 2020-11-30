@@ -10,9 +10,9 @@ public interface AttendanceService {
 
 	public void update(AttendanceEntity entity);
 
-	public void deleteById(Long id);
+	public void deleteByStudentId(Long id);
 
-	public AttendanceEntity findBySubjectName(String name);
+	public AttendanceEntity findByStudentId(Long id);
 
 	public AttendanceEntity getAttendanceById(Long id);
 

@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/*https://www.javatpoint.com/spring-boot-crud-operations*/
 import com.sun.istack.NotNull;
 
 /*
@@ -53,18 +53,23 @@ public class AttendanceEntity {
 	@NotNull
 	@Column(name = "COURSE_NAME", length = 30)
 	private String courseName;
+
 	/*
 	 * Creating getters and setters for above properties
 	 */
 	@Override
 	public String toString() {
 		return "AttendanceEntity [attendanceId=" + attendanceId + ", subjectId=" + subjectId + ", subjectName="
-				+ ", status=" + status + subjectName + ", studentId=" + studentId + ", studentName=" + studentName + ", semester=" + semester
-				 + ", totalClassPercentage=" + totalClassPercentage + ", totalPercentage="
+				+ ", status=" + status + subjectName + ", studentId=" + studentId + ", studentName=" + studentName
+				+ ", semester=" + semester + ", totalClassPercentage=" + totalClassPercentage + ", totalPercentage="
 				+ totalPercentage + ", courseId=" + courseId + ", courseName=" + courseName + "]";
 	}
-	public AttendanceEntity(Long subjectId, String subjectName,String status, Long studentId, String studentName, String semester,
-			Long totalClassPercentage, String totalPercentage, Long courseId, String courseName) {
+
+	/*
+	 * Constructor generation
+	 */
+	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName,
+			String semester, Long totalClassPercentage, String totalPercentage, Long courseId, String courseName) {
 		super();
 		this.subjectId = subjectId;
 		this.subjectName = subjectName;
@@ -77,42 +82,58 @@ public class AttendanceEntity {
 		this.courseId = courseId;
 		this.courseName = courseName;
 	}
+
+	/*
+	 * Getters and Setters
+	 */
 	public Long getAttendanceId() {
 		return attendanceId;
 	}
+
 	public void setAttendanceId(Long attendanceId) {
 		this.attendanceId = attendanceId;
 	}
+
 	public Long getSubjectId() {
 		return subjectId;
 	}
+
 	public void setSubjectId(Long subjectId) {
 		this.subjectId = subjectId;
 	}
+
 	public String getSubjectName() {
 		return subjectName;
 	}
+
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
+
 	public Long getStudentId() {
 		return studentId;
 	}
+
 	public void setStudentId(Long studentId) {
 		this.studentId = studentId;
 	}
+
 	public String getStudentName() {
 		return studentName;
 	}
+
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
+
 	public String getSemester() {
 		return semester;
 	}
+
 	public void setSemester(String semester) {
 		this.semester = semester;
 	}
+
 //	public LocalDate getDate() {
 //		return date;
 //	}
@@ -122,35 +143,45 @@ public class AttendanceEntity {
 	public Long getTotalClassPercentage() {
 		return totalClassPercentage;
 	}
+
 	public void setTotalClassPercentage(Long totalClassPercentage) {
 		this.totalClassPercentage = totalClassPercentage;
 	}
+
 	public String getTotalPercentage() {
 		return totalPercentage;
 	}
+
 	public void setTotalPercentage(String totalPercentage) {
 		this.totalPercentage = totalPercentage;
 	}
+
 	public Long getCourseId() {
 		return courseId;
 	}
+
 	public void setCourseId(Long courseId) {
 		this.courseId = courseId;
 	}
+
 	public String getCourseName() {
 		return courseName;
 	}
+
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	public AttendanceEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 }

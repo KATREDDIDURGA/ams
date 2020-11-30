@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.ams.entity.AttendanceEntity;
 import com.cg.ams.service.AttendanceService;
-
+/*
+ * @author SaiDurga
+ */
 //mark class as Controller  
 @RestController
 @RequestMapping("/api/attendanceManagementSystem")

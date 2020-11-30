@@ -3,7 +3,9 @@ package com.cg.ams.service;
 import java.util.List;
 
 import com.cg.ams.entity.AttendanceEntity;
-
+/*
+ * @author SaiDurga
+ */
 public interface AttendanceService {
 
 	public Long add(AttendanceEntity entity);

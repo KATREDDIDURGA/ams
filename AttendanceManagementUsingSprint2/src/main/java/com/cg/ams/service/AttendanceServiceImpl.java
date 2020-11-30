@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.ams.entity.AttendanceEntity;
 import com.cg.ams.repository.AttendanceDAO;
-
+/*
+ * @author SaiDurga
+ */
 //defining the business logic  
 @Service("service")
 @Transactional

@@ -67,14 +67,12 @@ public class AttendanceController {
 	// creating a get mapping that retrieves the detail of a specific student
 	@GetMapping("/findStudent/{studentId}")
 	public ResponseEntity<AttendanceEntity> getAttendanceBystudentId(@PathVariable("studentId") Long studentId) {
-		@SuppressWarnings("unused")
 		AttendanceEntity attendance = service.findByStudentId(studentId);
 		return new ResponseEntity<AttendanceEntity>(attendance, new HttpHeaders(), HttpStatus.OK);
 	}
 
 	@GetMapping("/find/{attendanceId}")
 	public ResponseEntity<AttendanceEntity> getAttendanceById(@PathVariable("attendanceId") Long attendanceId) {
-		@SuppressWarnings("unused")
 		AttendanceEntity attendance = service.getAttendanceById(attendanceId);
 		return new ResponseEntity<AttendanceEntity>(attendance, new HttpHeaders(), HttpStatus.OK);
 	}

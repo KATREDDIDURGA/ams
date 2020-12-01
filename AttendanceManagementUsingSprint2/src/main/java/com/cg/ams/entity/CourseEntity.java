@@ -29,11 +29,11 @@ public class CourseEntity {
 	 * creating getters and setters
 	 */
 
-	public long getId() {
+	public long getCourseId() {
 		return courseId;
 	}
 
-	public void setId(long id) {
+	public void setCourseId(long id) {
 		this.courseId = id;
 	}
 
@@ -60,5 +60,17 @@ public class CourseEntity {
 	public String toString() {
 		return "CourseEntity [id=" + courseId + ", name=" + name + ", description=" + description + "]";
 	}
+
+	public CourseEntity(String name, String description) {
+		super();
+		this.name = name;
+		this.description = description;
+	}
+
+	public CourseEntity() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
 }

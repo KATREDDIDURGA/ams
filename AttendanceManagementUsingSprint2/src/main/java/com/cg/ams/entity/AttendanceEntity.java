@@ -1,11 +1,15 @@
 package com.cg.ams.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 /*https://www.javatpoint.com/spring-boot-crud-operations*/
 import com.sun.istack.NotNull;
 
@@ -13,11 +17,14 @@ import com.sun.istack.NotNull;
  * @author SaiDurga
  */
 @Entity
-@Table(name = "attendancetable")
+@Table(name = "attendancetable1")
 public class AttendanceEntity {
 	@Id
 	@Column(name = "ATTENDANCE_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+//	@Id
+//	@SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", initialValue = 1, allocationSize = 100)
+//	@GeneratedValue(generator = "mySeqGen")
 	private Long attendanceId;
 	@NotNull
 	@Column(name = "SUBJ_ID", length = 10)
@@ -35,12 +42,12 @@ public class AttendanceEntity {
 	@Column(name = "STATUS", length = 20)
 	private String status;
 	@NotNull
-	@Column(name = "SEMESTER", length = 3)
+	@Column(name = "SEMESTER", length = 10)
 	private String semester;
-//	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-//	@NotNull
-//	@Column(name = "T_DATE")
-//	private LocalDate date;
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
+	@NotNull
+	@Column(name = "T_DATE")
+	private LocalDate date;
 	@NotNull
 	@Column(name = "TOTAL_PERCENTAGE", length = 3)
 	private Long totalClassPercentage;
@@ -53,36 +60,7 @@ public class AttendanceEntity {
 	@NotNull
 	@Column(name = "COURSE_NAME", length = 30)
 	private String courseName;
-
-	/*
-	 * Creating getters and setters for above properties
-	 */
-	@Override
-	public String toString() {
-		return "AttendanceEntity [attendanceId=" + attendanceId + ", subjectId=" + subjectId + ", subjectName="
-				+ ", status=" + status + subjectName + ", studentId=" + studentId + ", studentName=" + studentName
-				+ ", semester=" + semester + ", totalClassPercentage=" + totalClassPercentage + ", totalPercentage="
-				+ totalPercentage + ", courseId=" + courseId + ", courseName=" + courseName + "]";
-	}
-
-	/*
-	 * Constructor generation
-	 */
-	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName,
-			String semester, Long totalClassPercentage, String totalPercentage, Long courseId, String courseName) {
-		super();
-		this.subjectId = subjectId;
-		this.subjectName = subjectName;
-		this.studentId = studentId;
-		this.status = status;
-		this.studentName = studentName;
-		this.semester = semester;
-		this.totalClassPercentage = totalClassPercentage;
-		this.totalPercentage = totalPercentage;
-		this.courseId = courseId;
-		this.courseName = courseName;
-	}
-
+	
 	/*
 	 * Getters and Setters
 	 */
@@ -134,12 +112,12 @@ public class AttendanceEntity {
 		this.semester = semester;
 	}
 
-//	public LocalDate getDate() {
-//		return date;
-//	}
-//	public void setDate(LocalDate date) {
-//		this.date = date;
-//	}
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
 	public Long getTotalClassPercentage() {
 		return totalClassPercentage;
 	}
@@ -180,8 +158,54 @@ public class AttendanceEntity {
 		this.status = status;
 	}
 
+
+	/*
+	 * Creating getters and setters for above properties
+	 */
+	@Override
+	public String toString() {
+		return "AttendanceEntity [attendanceId=" + attendanceId + ", subjectId=" + subjectId + ", subjectName="
+				+ ", status=" + status + subjectName + ", studentId=" + studentId + ", studentName=" + studentName
+				+",date="+ date+ ", semester=" + semester + ", totalClassPercentage=" + totalClassPercentage + ", totalPercentage="
+				+ totalPercentage + ", courseId=" + courseId + ", courseName=" + courseName + "]";
+	}
+
+	/*
+	 * Constructor generation
+	 */
+	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName,
+			String semester,LocalDate date, Long totalClassPercentage, String totalPercentage, Long courseId, String courseName) {
+		super();
+		this.subjectId = subjectId;
+		this.subjectName = subjectName;
+		this.studentId = studentId;
+		this.status = status;
+		this.studentName = studentName;
+		this.date = date;
+		this.semester = semester;
+		this.totalClassPercentage = totalClassPercentage;
+		this.totalPercentage = totalPercentage;
+		this.courseId = courseId;
+		this.courseName = courseName;
+	}
+
 	public AttendanceEntity() {
-		// TODO Auto-generated constructor stub
+		
+	}
+
+	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName, String semester,
+			Long totalClassPercentage, String totalPercentage,Long courseId, String courseName) {
+		super();
+		this.subjectId = subjectId;
+		this.subjectName = subjectName;
+		this.studentId = studentId;
+		this.status = status;
+		this.studentName = studentName;
+		this.semester = semester;
+		this.totalClassPercentage = totalClassPercentage;
+		this.totalPercentage = totalPercentage;
+		this.courseId = courseId;
+		this.courseName = courseName;
 	}
 
 }

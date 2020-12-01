@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.ams.entity.AttendanceEntity;
-import com.cg.ams.service.AttendanceService;
+import com.cg.ams.entity.CourseEntity;
+import com.cg.ams.exception.RecordNotFoundException;
+import com.cg.ams.service.CourseService;
 
 /*
  * @author SaiDurga
@@ -27,7 +29,7 @@ import com.cg.ams.service.AttendanceService;
 public class CourseController {
 	// autowire the AttendanceService class
 		@Autowired
-		AttendanceService service;
+		CourseService courseService;
 
 		@GetMapping("/hello-world")
 		public String sayHello() {
@@ -35,46 +37,42 @@ public class CourseController {
 		}
 
 		// creating a get mapping that retrieves all the books detail from the database
-		@GetMapping("/getall")
-		private List<AttendanceEntity> getAllAttendance() {
-			return service.findAllAttendance();
+		@GetMapping("/list")
+		private List<CourseEntity> getAllCourse() throws RecordNotFoundException {
+			return courseService.findAllCourse();
 		}
 
 		// creating post mapping that post the attendance detail in the database
 		@PostMapping("/insert")
-		public Long create(@RequestBody AttendanceEntity attendance) {
-			service.add(attendance);
+		public Long create(@RequestBody CourseEntity course) {
+			courseService.add(course);
 			@SuppressWarnings({ "unused", "unchecked", "rawtypes" })
 			ResponseEntity<Boolean> responseEntity = new ResponseEntity(true, HttpStatus.OK);
-			return attendance.getAttendanceId();
+			return course.getCourseId();
 		}
 
 		// creating put mapping that updates the attendance detail
 		@PutMapping("/update")
-		public ResponseEntity<Boolean> update(@RequestBody AttendanceEntity attendance) {
-			service.update(attendance);
+		public ResponseEntity<Boolean> update(@RequestBody CourseEntity course) throws RecordNotFoundException{
+			courseService.update(course);
 			@SuppressWarnings({ "rawtypes", "unchecked" })
 			ResponseEntity<Boolean> responseEntity = new ResponseEntity(true, HttpStatus.OK);
 			return responseEntity;
 		}
 
 		// creating a delete mapping that deletes a specified student
-		@RequestMapping(value = "/delete/{studentId}", method = RequestMethod.DELETE)
-		public String deleteStudent(@PathVariable Long studentId) {
-			service.deleteByStudentId(studentId);
-			return "student has been deleted successfully";
+		@RequestMapping(value = "/delete/{courseId}", method = RequestMethod.DELETE)
+		public String deleteCourse(@PathVariable("courseId") Long courseId) throws RecordNotFoundException {
+			courseService.deleteByCourseId(courseId);
+			return "course has been deleted successfully";
 		}
 
 		// creating a get mapping that retrieves the detail of a specific student
-		@GetMapping("/findStudent/{studentId}")
-		public ResponseEntity<AttendanceEntity> getAttendanceBystudentId(@PathVariable("studentId") Long studentId) {
-			AttendanceEntity attendance = service.findByStudentId(studentId);
-			return new ResponseEntity<AttendanceEntity>(attendance, new HttpHeaders(), HttpStatus.OK);
+		@GetMapping("/find/{courseId}")
+		public ResponseEntity<List<CourseEntity>> getCourseById(@PathVariable("courseId") Long courseId)
+				throws RecordNotFoundException {
+			List<CourseEntity> course = courseService.findByCourseId(courseId);
+			return new ResponseEntity<List<CourseEntity>>(course, new HttpHeaders(), HttpStatus.OK);
 		}
 
-		@GetMapping("/find/{attendanceId}")
-		public ResponseEntity<AttendanceEntity> getAttendanceById(@PathVariable("attendanceId") Long attendanceId) {
-			AttendanceEntity attendance = service.getAttendanceById(attendanceId);
-			return new ResponseEntity<AttendanceEntity>(attendance, new HttpHeaders(), HttpStatus.OK);
-		}
 }

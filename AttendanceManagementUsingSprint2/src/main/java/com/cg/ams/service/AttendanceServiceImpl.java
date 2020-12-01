@@ -35,8 +35,8 @@ public class AttendanceServiceImpl implements AttendanceService {
 
 	// deleting a specific record by using the method deleteById() of CrudRepository
 	@Override
-	public void deleteByStudentId(Long StudentId) {
-		dao.deleteById(StudentId);
+	public void deleteByStudentId(Long studentId) {
+		dao.deleteById(studentId);
 	}
 
 	// getting a specific record by using the method findById() of CrudRepository

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.ams.entity.CourseEntity;
 import com.cg.ams.repository.CourseDAO;
-
+@Service("courseService")
+@Transactional
 public class CourseServiceImpl implements CourseService{
 	
 	@Autowired

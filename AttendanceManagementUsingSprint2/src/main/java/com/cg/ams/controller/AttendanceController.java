@@ -22,7 +22,7 @@ import com.cg.ams.service.AttendanceService;
  */
 //mark class as Controller  
 @RestController
-@RequestMapping("/api/attendanceManagementSystem")
+@RequestMapping("/api/amsAttendance")
 public class AttendanceController {
 	// autowire the AttendanceService class
 	@Autowired
@@ -70,7 +70,8 @@ public class AttendanceController {
 		AttendanceEntity attendance = service.findByStudentId(studentId);
 		return new ResponseEntity<AttendanceEntity>(attendance, new HttpHeaders(), HttpStatus.OK);
 	}
-
+	
+	// creating a get mapping that retrieves the detail of a specific student
 	@GetMapping("/find/{attendanceId}")
 	public ResponseEntity<AttendanceEntity> getAttendanceById(@PathVariable("attendanceId") Long attendanceId) {
 		AttendanceEntity attendance = service.getAttendanceById(attendanceId);

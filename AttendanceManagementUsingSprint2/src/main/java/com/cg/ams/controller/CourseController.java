@@ -23,7 +23,7 @@ import com.cg.ams.service.AttendanceService;
  */
 //mark class as Controller  
 @RestController
-@RequestMapping("/api/attendanceManagementSystem")
+@RequestMapping("/api/amsCourse")
 public class CourseController {
 	// autowire the AttendanceService class
 		@Autowired

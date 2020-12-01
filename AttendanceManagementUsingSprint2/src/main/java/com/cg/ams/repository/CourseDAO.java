@@ -14,7 +14,7 @@ public interface CourseDAO extends JpaRepository<CourseEntity, Long>{
 		public CourseEntity findByCourseId(Long courseId);
 
 		// Query to delete record of attendance by id
-		@Query("DELETE from CourseEntity d where d.studentId like ?1")
+		@Query("DELETE from CourseEntity d where d.courseId like ?1")
 		public CourseEntity deleteByCourseId(Long courseId);
 
 }

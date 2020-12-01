@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class CourseEntity {
 	@Id
 	@Column(name = "Course_ID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long courseId;
 	private String name;
 	private String description;
 
@@ -30,11 +30,11 @@ public class CourseEntity {
 	 */
 
 	public long getId() {
-		return id;
+		return courseId;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.courseId = id;
 	}
 
 	public String getName() {
@@ -58,7 +58,7 @@ public class CourseEntity {
 
 	@Override
 	public String toString() {
-		return "CourseEntity [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "CourseEntity [id=" + courseId + ", name=" + name + ", description=" + description + "]";
 	}
 
 }

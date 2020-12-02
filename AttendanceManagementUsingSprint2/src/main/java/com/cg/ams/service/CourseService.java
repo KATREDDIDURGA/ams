@@ -18,5 +18,6 @@ public interface CourseService {
 	public List<CourseEntity>  findByCourseId(Long id) throws RecordNotFoundException;
 
 	public List<CourseEntity > findAllCourse() throws RecordNotFoundException;
+	
 
 }

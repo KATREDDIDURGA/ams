@@ -20,10 +20,4 @@ public interface AttendanceDao extends JpaRepository<AttendanceEntity, Long> {
 	@Query(QueryUtil.VIEW_STUD_BY_ID) // query util
 	public List<AttendanceEntity> findByStudentId(Long studentId);
 
-//	// Query to delete record of attendance by id
-//	@Query(QueryUtil.DEL_STUD_BY_ID)
-//	@Transactional
-//	@Modifying
-//	public void deleteByAttendanceId(Long attendanceId);
-
 }

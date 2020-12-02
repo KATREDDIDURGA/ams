@@ -23,14 +23,13 @@ import com.cg.ams.repository.AttendanceDao;
 import com.cg.ams.service.AttendanceServiceImpl;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AttendanceTest {
+public class AttendanceServiceTest {
 	@InjectMocks
 	private AttendanceServiceImpl attendanceService;
 	
 	@Mock
 	private AttendanceDao attendanceDao;
 	
-	@SuppressWarnings("deprecation")
 	@BeforeAll
 	public void init() {
 		MockitoAnnotations.openMocks(this);
@@ -59,7 +58,7 @@ public class AttendanceTest {
 	}
 	
 	@Test
-	public void updateDoctorTest() throws RecordNotFoundException {
+	public void updateAttendanceTest() throws RecordNotFoundException {
 		AttendanceEntity attendanceEntity = new AttendanceEntity();
 		attendanceEntity.setCourseId((long) 111);
 		attendanceEntity.setCourseName("IT");
@@ -86,7 +85,7 @@ public class AttendanceTest {
 	}
 	
 	@Test
-	public void viewAttendanceTest() throws RecordNotFoundException {
+	public void viewAttendanceByIdTest() throws RecordNotFoundException {
 		AttendanceEntity attendanceEntity = new AttendanceEntity();
 		attendanceEntity.setCourseId((long) 111);
 		attendanceEntity.setCourseName("IT");

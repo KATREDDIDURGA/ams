@@ -5,13 +5,15 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-/*https://www.javatpoint.com/spring-boot-crud-operations*/
 import com.sun.istack.NotNull;
+
+/*https://www.javatpoint.com/spring-boot-crud-operations*/
+
 
 /*
  * @author SaiDurga
@@ -20,11 +22,8 @@ import com.sun.istack.NotNull;
 @Table(name = "attendancetable1")
 public class AttendanceEntity {
 	@Id
-	@Column(name = "ATTENDANCE_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-//	@Id
-//	@SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", initialValue = 1, allocationSize = 100)
-//	@GeneratedValue(generator = "mySeqGen")
+	@SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", initialValue = 5, allocationSize = 100)
+	@GeneratedValue(generator = "mySeqGen")
 	private Long attendanceId;
 	@NotNull
 	@Column(name = "SUBJ_ID", length = 10)

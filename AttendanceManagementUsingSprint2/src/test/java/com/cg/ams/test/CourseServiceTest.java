@@ -23,7 +23,7 @@ import com.cg.ams.service.CourseServiceImpl;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CourseTest {
+public class CourseServiceTest {
 	@InjectMocks
 	private CourseServiceImpl courseService;
 	

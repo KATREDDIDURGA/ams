@@ -38,7 +38,7 @@ public class CourseController {
 
 		// creating a get mapping that retrieves all the books detail from the database
 		@GetMapping("/list")
-		private List<CourseEntity> getAllCourse() throws RecordNotFoundException {
+		public List<CourseEntity> getAllCourse() throws RecordNotFoundException {
 			return courseService.findAllCourse();
 		}
 

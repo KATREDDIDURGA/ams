@@ -78,7 +78,6 @@ public class AttendanceControllerTest {
 		when(attendanceDao.save(attendanceEntity)).thenReturn(attendanceEntity);
 
 		attendanceEntity.setCourseId((long) 112);
-		;
 
 		attendanceController.update(attendanceEntity);
 
@@ -102,7 +101,6 @@ public class AttendanceControllerTest {
 		when(attendanceController.getAttendanceById(attendanceId).getBody()).thenReturn(attendanceEntity);	
 		ResponseEntity<AttendanceEntity> viewAttendance = attendanceController.getAttendanceById(attendanceId);
 		assertEquals("IT", viewAttendance.getBody().getCourseName());
-	
 	}
 
 	@Test
@@ -122,8 +120,6 @@ public class AttendanceControllerTest {
 
 		attendanceList.add(attendanceEntity);
 		attendanceList.add(attendanceEntity1);
-		System.out.println(attendanceList);
-		System.out.println(attendanceList.size());
 		when(attendanceController.getAllAttendance()).thenReturn(attendanceList);
 		List<AttendanceEntity> attendanceList2 = attendanceController.getAllAttendance();
 		assertThat(attendanceList2).contains(attendanceEntity);

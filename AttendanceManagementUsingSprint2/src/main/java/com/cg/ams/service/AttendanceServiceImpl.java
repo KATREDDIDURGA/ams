@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,8 @@ import com.cg.ams.entity.AttendanceEntity;
 import com.cg.ams.exception.RecordNotFoundException;
 import com.cg.ams.repository.AttendanceDao;
 import com.cg.ams.util.ErrorMessageUtil;
+
+import ch.qos.logback.classic.Logger;
 
 /*
  * @author SaiDurga
@@ -22,6 +25,7 @@ import com.cg.ams.util.ErrorMessageUtil;
 public class AttendanceServiceImpl implements AttendanceService {
 	@Autowired
 	private AttendanceDao attendanceDao;
+//	static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(AttendanceServiceImpl.class.getName());
 
 	// saving a specific record by using the method save() of CrudRepository
 	@Override

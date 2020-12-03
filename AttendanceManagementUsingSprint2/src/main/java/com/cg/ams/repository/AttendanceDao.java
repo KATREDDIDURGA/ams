@@ -1,6 +1,17 @@
 package com.cg.ams.repository;
 
 import java.util.List;
+/**
+
+ * This interface is to get the inbuilt CRUD operations for AttendanceEntity
+
+ * 
+
+ * @param JpaRepository<AttendanceEntity, Long>
+
+ * 
+
+ **/
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 
-/*https://www.javatpoint.com/spring-boot-crud-operations*/
 
 /*
  * @author SaiDurga

@@ -1,5 +1,12 @@
 package com.cg.ams.controller;
-
+/*
+Create string objects in java
+Git
+Validations
+maam pom.xml
+Test cases
+application.prop
+ */
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

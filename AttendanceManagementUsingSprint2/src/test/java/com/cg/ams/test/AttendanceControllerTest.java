@@ -114,24 +114,13 @@ public void viewAttendanceListTest() throws RecordNotFoundException {
 	attendanceEntity.setCourseName("IT");
 	attendanceEntity.setSemester("VII");
 	attendanceEntity.setStatus("present");
-	attendanceEntity.setStudentId((long) 1695);
-	attendanceEntity.setStudentName("durga");
-	attendanceEntity.setSubjectId((long) 101);
-	attendanceEntity.setSubjectName("DB");
-	attendanceEntity.setTotalClassPercentage((long) 97);
-	attendanceEntity.setTotalPercentage("99%");
 	
 	AttendanceEntity attendanceEntity1 = new AttendanceEntity();
 	attendanceEntity1.setCourseId((long) 1112);
 	attendanceEntity1.setCourseName("CSE");
 	attendanceEntity1.setSemester("VII");
 	attendanceEntity1.setStatus("present");
-	attendanceEntity1.setStudentId((long) 1696);
-	attendanceEntity1.setStudentName("sai");
-	attendanceEntity1.setSubjectId((long) 1012);
-	attendanceEntity1.setSubjectName("BDBA");
-	attendanceEntity1.setTotalClassPercentage((long) 99);
-	attendanceEntity1.setTotalPercentage("67%");
+
 	attendanceList.add(attendanceEntity);
 	attendanceList.add(attendanceEntity1);
 	System.out.println(attendanceList);

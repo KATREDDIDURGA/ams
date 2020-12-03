@@ -30,7 +30,7 @@ public class CourseServiceTest {
 	@Mock
 	private CourseDao courseDao;
 	
-	@SuppressWarnings("deprecation")
+	
 	@BeforeAll
 	public void init() {
 		MockitoAnnotations.openMocks(this);

@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /*
  * @author SaiDurga
  */
@@ -17,8 +18,11 @@ public class CourseEntity {
 	@Column(name = "Course_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long courseId;
-	private String name;
-	private String description;
+	private String courseName;
+	private String courseDescription;
+	/*
+	 * getters and setters
+	 */
 	public long getCourseId() {
 		return courseId;
 	}
@@ -28,19 +32,19 @@ public class CourseEntity {
 	}
 
 	public String getName() {
-		return name;
+		return courseName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String courseName) {
+		this.courseName = courseName;
 	}
 
 	public String getDescription() {
-		return description;
+		return courseDescription;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String courseDescription) {
+		this.courseDescription = courseDescription;
 	}
 	/*
 	 * creating to string method
@@ -48,13 +52,16 @@ public class CourseEntity {
 
 	@Override
 	public String toString() {
-		return "CourseEntity [id=" + courseId + ", name=" + name + ", description=" + description + "]";
+		return "CourseEntity [id=" + courseId + ", name=" + courseName + ", description=" + courseDescription + "]";
 	}
+	/*
+	 * constructor
+	 */
 
-	public CourseEntity(String name, String description) {
+	public CourseEntity(String courseName, String courseDescription) {
 		super();
-		this.name = name;
-		this.description = description;
+		this.courseName = courseName;
+		this.courseDescription = courseDescription;
 	}
 
 	public CourseEntity() {

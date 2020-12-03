@@ -1,0 +1,7 @@
+[http-nio-7777-exec-2] INFO  com.cg.ams.controller.AttendanceController  - Started adding attendance Details  
+  [http-nio-7777-exec-2] INFO  com.cg.ams.controller.AttendanceController  - Completed adding attendance Details  
+  [http-nio-7777-exec-1] INFO  com.cg.ams.controller.AttendanceController  - Started adding attendance Details  
+  [http-nio-7777-exec-1] INFO  com.cg.ams.controller.AttendanceController  - Completed adding attendance Details  
+  [http-nio-7777-exec-1] INFO  com.cg.ams.controller.CourseController  - Started adding  Course Details 
+  [http-nio-7777-exec-1] INFO  com.cg.ams.controller.CourseController  - Completed adding Course Details 
+  

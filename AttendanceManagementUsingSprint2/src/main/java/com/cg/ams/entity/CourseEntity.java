@@ -19,16 +19,6 @@ public class CourseEntity {
 	private long courseId;
 	private String name;
 	private String description;
-
-	/*
-	 * Creating one to many relation with subjects
-	 */
-//	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-//	private Set<SubjectEntity> subjects = new HashSet<>(); // Initialization required to avoid NullPointerException
-	/*
-	 * creating getters and setters
-	 */
-
 	public long getCourseId() {
 		return courseId;
 	}
@@ -68,9 +58,6 @@ public class CourseEntity {
 	}
 
 	public CourseEntity() {
-		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }

@@ -1,7 +1,6 @@
 package com.cg.ams.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -26,10 +25,10 @@ import com.cg.ams.service.AttendanceServiceImpl;
 public class AttendanceServiceTest {
 	@InjectMocks
 	private AttendanceServiceImpl attendanceService;
-	
+
 	@Mock
 	private AttendanceDao attendanceDao;
-	
+
 	@BeforeAll
 	public void init() {
 		MockitoAnnotations.openMocks(this);
@@ -48,15 +47,16 @@ public class AttendanceServiceTest {
 		attendanceEntity.setSubjectName("DB");
 		attendanceEntity.setTotalClassPercentage((long) 97);
 		attendanceEntity.setTotalPercentage("99%");
-		
+
 		when(attendanceDao.save(attendanceEntity)).thenReturn(attendanceEntity);
-		
+
+		@SuppressWarnings("unused")
 		Long attendanceId = attendanceService.add(attendanceEntity);
-		
+
 		assertEquals("durga", attendanceEntity.getStudentName());
 		verify(attendanceDao, times(1)).save(attendanceEntity);
 	}
-	
+
 	@Test
 	public void updateAttendanceTest() throws RecordNotFoundException {
 		AttendanceEntity attendanceEntity = new AttendanceEntity();
@@ -72,18 +72,20 @@ public class AttendanceServiceTest {
 		attendanceEntity.setTotalPercentage("99%");
 		Long attendanceId = attendanceEntity.getAttendanceId();
 		Optional<AttendanceEntity> attendanceEntity1 = attendanceDao.findById(attendanceId);
-		
+
 		when(attendanceDao.findById(attendanceId)).thenReturn(attendanceEntity1);
 		when(attendanceDao.save(attendanceEntity)).thenReturn(attendanceEntity);
-		
-		attendanceEntity.setCourseId((long) 112);;
-		
-		attendanceService.update(attendanceEntity);;
-		
+
+		attendanceEntity.setCourseId((long) 112);
+		;
+
+		attendanceService.update(attendanceEntity);
+		;
+
 		assertEquals(112, attendanceEntity.getCourseId());
 		verify(attendanceDao, times(1)).save(attendanceEntity);
 	}
-	
+
 	@Test
 	public void viewAttendanceByIdTest() throws RecordNotFoundException {
 		AttendanceEntity attendanceEntity = new AttendanceEntity();
@@ -100,13 +102,14 @@ public class AttendanceServiceTest {
 		Long attendanceId = attendanceEntity.getAttendanceId();
 		Optional<AttendanceEntity> attendance = Optional.of(attendanceEntity);
 		when(attendanceDao.findById(attendanceId)).thenReturn(attendance);
-		
+
 		AttendanceEntity viewAttendance = attendanceService.getAttendanceById(attendanceId);
-		
-		assertEquals("IT", viewAttendance.getCourseName());;
+
+		assertEquals("IT", viewAttendance.getCourseName());
+		;
 		verify(attendanceDao, times(1)).findById(attendanceId);
 	}
-	
+
 	@Test
 	public void viewAttendanceListTest() throws RecordNotFoundException {
 		List<AttendanceEntity> attendanceList = new ArrayList<AttendanceEntity>();
@@ -121,7 +124,7 @@ public class AttendanceServiceTest {
 		attendanceEntity.setSubjectName("DB");
 		attendanceEntity.setTotalClassPercentage((long) 97);
 		attendanceEntity.setTotalPercentage("99%");
-		
+
 		AttendanceEntity attendanceEntity1 = new AttendanceEntity();
 		attendanceEntity1.setCourseId((long) 1112);
 		attendanceEntity1.setCourseName("CSE");
@@ -135,11 +138,11 @@ public class AttendanceServiceTest {
 		attendanceEntity1.setTotalPercentage("67%");
 		attendanceList.add(attendanceEntity);
 		attendanceList.add(attendanceEntity1);
-	
+
 		when(attendanceDao.findAll()).thenReturn(attendanceList);
-		
+
 		List<AttendanceEntity> attendanceList2 = attendanceService.findAllAttendance();
-		
+
 		assertEquals(2, attendanceList2.size());
 		verify(attendanceDao, times(1)).findAll();
 	}

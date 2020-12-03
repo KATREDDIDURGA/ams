@@ -2,6 +2,7 @@ package com.cg.ams.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class CourseServiceImpl implements CourseService {
 	// updating a record
 	@Override
 	public void update(CourseEntity courseEntity) throws RecordNotFoundException {
-		if (courseDao.findByCourseId(courseEntity.getCourseId()) == null) {
+		if (courseDao.findById(courseEntity.getCourseId()) == null) {
 			throw new RecordNotFoundException(ErrorMessageUtil.ENTITY_NOT_FOUND);
 		}
 		courseDao.save(courseEntity);
@@ -39,19 +40,10 @@ public class CourseServiceImpl implements CourseService {
 	// deleting a specific record by using the method deleteById() of CrudRepository
 	@Override
 	public void deleteByCourseId(Long courseId) throws RecordNotFoundException {
-		if (courseDao.findByCourseId(courseId) == null) {
+		if (courseDao.findById(courseId) == null) {
 			throw new RecordNotFoundException(ErrorMessageUtil.STU_RECORD_NOT_FOUND);
 		}
 		courseDao.deleteById(courseId);
-	}
-
-	// getting a specific record by using the method findById() of CrudRepository
-	@Override
-	public List<CourseEntity> findByCourseId(Long courseId) throws RecordNotFoundException {
-		if (courseDao.findByCourseId(courseId) == null) {
-			throw new RecordNotFoundException(ErrorMessageUtil.STU_RECORD_NOT_FOUND);
-		}
-		return courseDao.findByCourseId(courseId);
 	}
 
 	// getting all attendance records by using the method findAll() ofCrudRepository
@@ -60,6 +52,16 @@ public class CourseServiceImpl implements CourseService {
 		List<CourseEntity> course = new ArrayList<CourseEntity>();
 		courseDao.findAll().forEach(course1 -> course.add((CourseEntity) course1));
 		return course;
+	}
+
+	// getting a specific record by using the method findById() of CrudRepository
+	@Override
+	public CourseEntity getCourseById(Long courseId) throws RecordNotFoundException {
+		Optional<CourseEntity> course = courseDao.findById(courseId);
+		if (course.isEmpty()) {
+			throw new RecordNotFoundException(ErrorMessageUtil.ATT_RECORD_NOT_FOUND);
+		}
+		return course.get();
 	}
 
 }

@@ -14,7 +14,6 @@ import com.sun.istack.NotNull;
 
 /*https://www.javatpoint.com/spring-boot-crud-operations*/
 
-
 /*
  * @author SaiDurga
  */
@@ -59,7 +58,7 @@ public class AttendanceEntity {
 	@NotNull
 	@Column(name = "COURSE_NAME", length = 30)
 	private String courseName;
-	
+
 	/*
 	 * Getters and Setters
 	 */
@@ -114,9 +113,11 @@ public class AttendanceEntity {
 	public LocalDate getDate() {
 		return date;
 	}
+
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+
 	public Long getTotalClassPercentage() {
 		return totalClassPercentage;
 	}
@@ -157,7 +158,6 @@ public class AttendanceEntity {
 		this.status = status;
 	}
 
-
 	/*
 	 * Creating getters and setters for above properties
 	 */
@@ -165,15 +165,17 @@ public class AttendanceEntity {
 	public String toString() {
 		return "AttendanceEntity [attendanceId=" + attendanceId + ", subjectId=" + subjectId + ", subjectName="
 				+ ", status=" + status + subjectName + ", studentId=" + studentId + ", studentName=" + studentName
-				+",date="+ date+ ", semester=" + semester + ", totalClassPercentage=" + totalClassPercentage + ", totalPercentage="
-				+ totalPercentage + ", courseId=" + courseId + ", courseName=" + courseName + "]";
+				+ ",date=" + date + ", semester=" + semester + ", totalClassPercentage=" + totalClassPercentage
+				+ ", totalPercentage=" + totalPercentage + ", courseId=" + courseId + ", courseName=" + courseName
+				+ "]";
 	}
 
 	/*
 	 * Constructor generation
 	 */
 	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName,
-			String semester,LocalDate date, Long totalClassPercentage, String totalPercentage, Long courseId, String courseName) {
+			String semester, LocalDate date, Long totalClassPercentage, String totalPercentage, Long courseId,
+			String courseName) {
 		super();
 		this.subjectId = subjectId;
 		this.subjectName = subjectName;
@@ -189,11 +191,11 @@ public class AttendanceEntity {
 	}
 
 	public AttendanceEntity() {
-		
+
 	}
 
-	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName, String semester,
-			Long totalClassPercentage, String totalPercentage,Long courseId, String courseName) {
+	public AttendanceEntity(Long subjectId, String subjectName, String status, Long studentId, String studentName,
+			String semester, Long totalClassPercentage, String totalPercentage, Long courseId, String courseName) {
 		super();
 		this.subjectId = subjectId;
 		this.subjectName = subjectName;

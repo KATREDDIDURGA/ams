@@ -69,7 +69,8 @@ public class AttendanceServiceImpl implements AttendanceService {
 		return attendance.get();
 	}
 
-	// getting all attendance records by using the method findaAll() of CrudRepository
+	// getting all attendance records by using the method findaAll() of
+	// CrudRepository
 	@Override
 	public List<AttendanceEntity> findAllAttendance() throws RecordNotFoundException {
 		List<AttendanceEntity> attendance = new ArrayList<AttendanceEntity>();

@@ -1,4 +1,5 @@
 package com.cg.ams.controller;
+
 /*
 Create string objects in java
 Git
@@ -31,19 +32,19 @@ import com.cg.ams.service.AttendanceService;
  */
 //mark class as Controller  
 @RestController
-@RequestMapping("/api/amsattendance")
+//@RequestMapping("/api/amsattendance")
 public class AttendanceController {
 	// autowire the AttendanceService class
 	@Autowired
 	private AttendanceService attendanceService;
-
-	@GetMapping("/hello-world")
+	// hello world
+	@GetMapping("/hello-world-attendance")
 	public String sayHello() {
 		return "HelloWorld";
 	}
 
 	// creating a get mapping that retrieves all the books detail from the database
-	@GetMapping("/list")
+	@GetMapping("/list-attendance")
 	public List<AttendanceEntity> getAllAttendance() throws RecordNotFoundException {
 		@SuppressWarnings("unused")
 		ResponseEntity<Boolean> responseEntity;
@@ -51,16 +52,16 @@ public class AttendanceController {
 	}
 
 	// creating post mapping that post the attendance detail in the database
-	@PostMapping("/insert")
+	@PostMapping("/insert-attendance")
 	public Long create(@RequestBody AttendanceEntity attendance) {
 		attendanceService.add(attendance);
-		@SuppressWarnings({ "unused", "unchecked", "rawtypes" })
+		@SuppressWarnings({ "unused" })
 		ResponseEntity<Boolean> responseEntity;
 		return attendance.getAttendanceId();
 	}
 
 	// creating put mapping that updates the attendance detail
-	@PutMapping("/update")
+	@PutMapping("/update-attendance")
 	public ResponseEntity<Boolean> update(@RequestBody AttendanceEntity attendance) throws RecordNotFoundException {
 		attendanceService.update(attendance);
 		@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -69,14 +70,14 @@ public class AttendanceController {
 	}
 
 	// creating a delete mapping that deletes a specified student
-	@DeleteMapping(value = "/delete/{attendanceId}")
+	@DeleteMapping(value = "/delete-attendance/{attendanceId}")
 	public String deleteAttendance(@PathVariable("attendanceId") Long attendanceId) throws RecordNotFoundException {
 		attendanceService.deleteByAttendanceId(attendanceId);
 		return "student has been deleted successfully";
 	}
 
 	// creating a get mapping that retrieves the detail of a specific student
-	@GetMapping("/findStudent/{studentId}")
+	@GetMapping("/find-student/{studentId}")
 	public ResponseEntity<List<AttendanceEntity>> getAttendanceBystudentId(@PathVariable("studentId") Long studentId)
 			throws RecordNotFoundException {
 		List<AttendanceEntity> attendance = attendanceService.findByStudentId(studentId);
@@ -84,7 +85,7 @@ public class AttendanceController {
 	}
 
 	// creating a get mapping that retrieves the detail of a specific student
-	@GetMapping("/find/{attendanceId}")
+	@GetMapping("/find-attendance/{attendanceId}")
 	public ResponseEntity<AttendanceEntity> getAttendanceById(@PathVariable("attendanceId") Long attendanceId)
 			throws RecordNotFoundException {
 		AttendanceEntity attendance = attendanceService.getAttendanceById(attendanceId);

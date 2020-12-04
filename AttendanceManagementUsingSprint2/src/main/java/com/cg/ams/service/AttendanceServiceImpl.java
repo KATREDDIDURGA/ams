@@ -25,7 +25,6 @@ import ch.qos.logback.classic.Logger;
 public class AttendanceServiceImpl implements AttendanceService {
 	@Autowired
 	private AttendanceDao attendanceDao;
-//	static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(AttendanceServiceImpl.class.getName());
 
 	// saving a specific record by using the method save() of CrudRepository
 	@Override

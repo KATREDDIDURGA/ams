@@ -23,12 +23,22 @@ import com.cg.ams.service.AttendanceServiceImpl;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AttendanceServiceTest {
+	
+	/*
+	 * Mock object on which mocking is performed
+	 */
 	@InjectMocks
 	private AttendanceServiceImpl attendanceService;
-
+	
+	/*
+	 * Supporting mock object
+	 */
 	@Mock
 	private AttendanceDao attendanceDao;
-
+	
+	/*
+	 * Initializing fields marked with mockito annotation
+	 */
 	@BeforeAll
 	public void init() {
 		MockitoAnnotations.openMocks(this);
@@ -77,10 +87,8 @@ public class AttendanceServiceTest {
 		when(attendanceDao.save(attendanceEntity)).thenReturn(attendanceEntity);
 
 		attendanceEntity.setCourseId((long) 112);
-		;
 
 		attendanceService.update(attendanceEntity);
-		;
 
 		assertEquals(112, attendanceEntity.getCourseId());
 		verify(attendanceDao, times(1)).save(attendanceEntity);
@@ -104,9 +112,8 @@ public class AttendanceServiceTest {
 		when(attendanceDao.findById(attendanceId)).thenReturn(attendance);
 
 		AttendanceEntity viewAttendance = attendanceService.getAttendanceById(attendanceId);
-
+		//checking two objects are equal or not
 		assertEquals("IT", viewAttendance.getCourseName());
-		;
 		verify(attendanceDao, times(1)).findById(attendanceId);
 	}
 
